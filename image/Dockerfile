@@ -27,8 +27,45 @@ RUN echo "path-include /usr/share/doc/krb5*" >> /etc/dpkg/dpkg.cfg.d/docker && a
        openssl \
        slapd \
        krb5-kdc-ldap \
+       git \
+       gcc \
+       libc6-dev \
+       make \
+       groff \
+       groff-base \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Build openldap
+# RUN cd /home \
+#     && git clone https://github.com/zhonghuiwen/openldap \
+#     && cd /home/openldap \
+#     && ./configure \
+#     && make depend \
+#     && make \
+#     #&& make test \
+#     && make install \
+#     && rm -rf /home/openldap \
+#     && rm -rf /tmp/* /var/tmp/*
+
+# Install custom openldap
+COPY openldap-build/ /home/openldap-build/
+RUN export DEBIAN_FRONTEND=noninteractive \
+    && cd /home/openldap-build \
+    && dpkg -i libldap-common_2.4.45+dfsg-1~bpo9+1_all.deb \
+    && dpkg -i libldap-2.4-2_2.4.45+dfsg-1~bpo9+1_amd64.deb \
+    && apt --fix-broken install -y ./slapd_2.4.45+dfsg-1~bpo9+1_amd64.deb \
+    && dpkg -i ldap-utils_2.4.45+dfsg-1~bpo9+1_amd64.deb \
+    && dpkg -i ldap-utils-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb \
+    && dpkg -i slapd-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb \
+    # && apt --fix-broken install -y ./slapd-smbk5pwd_2.4.45+dfsg-1~bpo9+1_amd64.deb \
+    # && dpkg -i slapd-smbk5pwd-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb \ 
+    && apt-get install -f \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /home/openldap-build
+
+# ENV PATH="/usr/local/libexec:${PATH}"
+# RUN slapd -V
 
 # Add service directory to /container/service
 ADD service /container/service

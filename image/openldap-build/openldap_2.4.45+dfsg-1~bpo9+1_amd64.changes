@@ -1,0 +1,59 @@
+Format: 1.8
+Date: Wed, 02 Aug 2017 09:05:55 -0700
+Source: openldap
+Binary: slapd slapd-smbk5pwd ldap-utils libldap-2.4-2 libldap-common libldap2-dev
+Architecture: amd64 all
+Version: 2.4.45+dfsg-1~bpo9+1
+Distribution: stretch-backports
+Urgency: medium
+Maintainer: Debian OpenLDAP Maintainers <pkg-openldap-devel@lists.alioth.debian.org>
+Changed-By: Ryan Tandy <ryan@nardis.ca>
+Description:
+ ldap-utils - OpenLDAP utilities
+ libldap-2.4-2 - OpenLDAP libraries
+ libldap-common - OpenLDAP common files for libraries
+ libldap2-dev - OpenLDAP development libraries
+ slapd      - OpenLDAP server (slapd)
+ slapd-smbk5pwd - Keeps Samba and Kerberos passwords in sync within slapd.
+Changes:
+ openldap (2.4.45+dfsg-1~bpo9+1) stretch-backports; urgency=medium
+ .
+   * Rebuild for stretch-backports.
+   * Revert "Fix build with Heimdal 7.2.0" as stretch contains a lower version
+     of heimdal.
+Checksums-Sha1:
+ a6f7fa9ee3831465f09df6b3ff0a15cd43f6dfc6 450172 ldap-utils-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 98e88d539b37cbda149b0caae643a525bf3e3ff6 193182 ldap-utils_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 565db3823503e1388f28b4cabe7de06402262909 444112 libldap-2.4-2-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 926b9a2ba99a364a1898f98322003ce7fe0a8f22 220844 libldap-2.4-2_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 3c80b2f6f5d155d2db11574a08abf23a55c236fc 87044 libldap-common_2.4.45+dfsg-1~bpo9+1_all.deb
+ 5b697c5d280a9152aaf90373e44f261080475a58 328582 libldap2-dev_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ a783c55b445caa396b8d8583906268e2f8a79646 9390 openldap_2.4.45+dfsg-1~bpo9+1_amd64.buildinfo
+ c77b3707f9c1d8909d3ba5ea6873e69361ee1bf6 6169732 slapd-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 44de9c629bce7b2bce950bf19165160dc8d35e32 42454 slapd-smbk5pwd-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ a0a25ddaf42167402d0cbe642199afa5da376ee4 92092 slapd-smbk5pwd_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 90b9bea27184d48097860e81535c0bf67472aba8 1431736 slapd_2.4.45+dfsg-1~bpo9+1_amd64.deb
+Checksums-Sha256:
+ bc9833fd51c8dcf1b9c126d503423cb5d36b87cb6b4c2876bf356bb122235b3f 450172 ldap-utils-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 33fa3a5ad4e561f7db62d4d6c8c76cd5f3e4a4451e4d89ba154a0744cdfd64ba 193182 ldap-utils_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 661e1599570103168047ce1db17938b8a83410c1345ef6bbe896ab913c4c5d25 444112 libldap-2.4-2-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ aea43e4bdbdddddacd6e50997d353b0a8241a9bd57d022762e2c8b68662fb8e4 220844 libldap-2.4-2_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ be24183573ffcb373d9e07dae39d19ea70c7548add63c66e4780af936196a895 87044 libldap-common_2.4.45+dfsg-1~bpo9+1_all.deb
+ 55c3954ad980d9ef375d5c34fd5211f6829f5fd7a38f921ab640603faf9757ab 328582 libldap2-dev_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ b8cd4f1773d79d9f3a05d9b82566617c479744316c8782a2349971c4ef5bb725 9390 openldap_2.4.45+dfsg-1~bpo9+1_amd64.buildinfo
+ bf15d29b486b1a0caef111b523e80150dfe887400529024f473c2271448b3a8c 6169732 slapd-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ a6b93122e308e65de16d379ee026a7a2617d87c424a0668289d64b87a1102f98 42454 slapd-smbk5pwd-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 80cfaa95a44206a20d8b41040fe2754c35fe7a4ccc19f2c6c9e3c70f9d2e675c 92092 slapd-smbk5pwd_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 78acdd5895a1f59f64455e4fb505d9fb7a5a5014283f80a8afb8ea8b9560c183 1431736 slapd_2.4.45+dfsg-1~bpo9+1_amd64.deb
+Files:
+ 71a5efb883f57263b0276bcc9249be41 450172 debug extra ldap-utils-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 4c134896ad93cf37dbac9d07117b7de5 193182 net optional ldap-utils_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 7caecff0cd6d9d3541c6e9069c34d818 444112 debug extra libldap-2.4-2-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ a3f15dcb1bdb63a504ba56f1878901d0 220844 libs standard libldap-2.4-2_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 6896c170b1053b21b7c18580bc221968 87044 libs standard libldap-common_2.4.45+dfsg-1~bpo9+1_all.deb
+ 6222c9fb415502090c62b43c1d72d60e 328582 libdevel optional libldap2-dev_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ e02134b76deb3bb84b5c60f5ad2e40cb 9390 net optional openldap_2.4.45+dfsg-1~bpo9+1_amd64.buildinfo
+ a5867be16b8a116f654964d15c23b521 6169732 debug extra slapd-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 77d324a8bc7ba1b032f22dc294b469f7 42454 debug extra slapd-smbk5pwd-dbgsym_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ 18f7cb1cd64f21995419dd70e75f8fbb 92092 net optional slapd-smbk5pwd_2.4.45+dfsg-1~bpo9+1_amd64.deb
+ a180db69d8aa9532341a7c3df809841b 1431736 net optional slapd_2.4.45+dfsg-1~bpo9+1_amd64.deb
