@@ -26,6 +26,8 @@ RUN echo "path-include /usr/share/doc/krb5*" >> /etc/dpkg/dpkg.cfg.d/docker && a
        libsasl2-modules-sql \
        openssl \
        slapd \
+       krb5-kdc \
+       krb5-admin-server \
        krb5-kdc-ldap \
        git \
        gcc \
@@ -33,6 +35,8 @@ RUN echo "path-include /usr/share/doc/krb5*" >> /etc/dpkg/dpkg.cfg.d/docker && a
        make \
        groff \
        groff-base \
+       runit \
+       vim \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

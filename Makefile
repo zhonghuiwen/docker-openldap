@@ -26,3 +26,8 @@ release: build test tag-latest push push-latest
 git-tag-version: release
 	git tag -a v$(VERSION) -m "v$(VERSION)"
 	git push origin v$(VERSION)
+
+run-build-dev:
+	docker build ./image -t gameboy1990/openldap
+	docker container rm openldap
+	docker run -p 389:389 --name openldap gameboy1990/openldap --loglevel debug 

@@ -1,0 +1,26 @@
+# To utilize Kerberos, OpenLDAP must know some general details about the Kerberos realm 
+# and KDC. Also, it is frequently necessary to map the Distinguished Name (DN) of an 
+# authorized Kerberos client to an existing entry in the DIT. 
+
+# The olcSaslRegexp attribute (or the saslRegexp directive in slapd.conf) establishes
+# maps between SASL DNs and DIT entries. As an example, in the configurations below,
+# the Kerberos user bob (with DN uid=bob,cn=<Kerberos Realm>,cn=GSSAPI,cn=auth) would 
+# be mapped to the DN uid=bob,ou=people,dc=example,dc=com.
+
+#The FQDN of the Kerberos KDC.
+olcSaslHost: localhost
+
+#The Kerberos realm name
+olcSaslRealm: EXAMPLE.ORG
+
+#disallow insecure authentication mechanisms such as plain passwords
+olcSaslSecProps: noplain,noactive,noanonymous,minssf=56
+
+#by default, the DN of an authorized Kerberos client takes the form
+#uid=<Kerberos principal name>,cn=<Kerberos Realm>,cn=GSSAPI,cn=auth
+#adjust the following mappings to match the local configuration as necessary
+olcAuthzRegexp: {0}"uid=([^/]*),cn=example.org,cn=GSSAPI,cn=auth" "uid=$1,dc=example,dc=org"
+olcAuthzRegexp: {1}"uid=host/([^/]*).example.org,cn=example.org,cn=gssapi,cn=auth" "cn=$1,ou=hosts,dc=example,dc=com"
+
+#administrative user map, assumes existence of cn=admin,cn=config
+olcAuthzRegexp: {2}"uid=ldap/admin,cn=example.org,cn=gssapi,cn=auth" "cn=admin,cn=config"
